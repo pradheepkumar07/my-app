@@ -1,8 +1,12 @@
 import React from "react";
+import About from "./About";
 
 function App(){
     return(
-      <div> I'm the one of Best Developer In the Universe</div>
+      <div className="app">
+      <Home></Home>
+      <About></About>
+      </div>
     );
 }
 
