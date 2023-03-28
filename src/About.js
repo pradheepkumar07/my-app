@@ -1,17 +1,18 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import { Link,Outlet } from "react-router-dom";
 
-function About(){
+
+const About = () => {
     return(
-        <>
-        <main>
-            <h2> Welcome to the homepage</h2>
-            
-        </main>
-        <nav>
-            <Link to="/about">About</Link>
-        </nav>
-        </>
+        <div>
+            <h2> Welcome to the Aboutpage</h2>
+            <ul>
+                <li><Link to="/content1">Content1</Link></li>
+                <li><Link to="/content2">Content1</Link></li>
+                <li><Link to="/content3">Content1</Link></li>
+            </ul>
+            <Outlet/>
+        </div>   
     );
 }
 
