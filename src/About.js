@@ -7,9 +7,9 @@ const About = () => {
         <div>
             <h2> Welcome to the Aboutpage</h2>
             <ul>
-                <li><Link to="/content1">Content1</Link></li>
-                <li><Link to="/content2">Content1</Link></li>
-                <li><Link to="/content3">Content1</Link></li>
+                <li><Link to="content1">Content1</Link></li>
+                <li><Link to="content2">Content2</Link></li>
+                <li><Link to="content3">Content3</Link></li>
             </ul>
             <Outlet/>
         </div>   
