@@ -13,7 +13,13 @@ function BasicForm(){
       noValidate
       autoComplete="off"
     >   <h1>Form Validation</h1>
-        <TextField id="basic-form" label="" variant="standard" />
+        <>
+        <TextField id="basic-text" label="Text" variant="standard" required/>
+        <TextField id="basic-Desc" label="Description" variant="standard" />
+        </>
+        <div>
+        <TextField id="Content" label="Content" multiline maxRows={6} variant="standard"/>
+        </div>
     </Box>
     );
 
