@@ -1,0 +1,20 @@
+{
+    "users":[
+        {
+            "id":1,
+            "name":"jackson",
+            "username":"user1",
+            "email":"user1@user1.com",
+            "password":"01234567"
+        }
+    ],
+    "shop": [],
+    "products":[
+
+            {"id":10,"name":"product1","description":"description","price":"$200","image":"https://robohash.org/1"},
+            {"id":11,"name":"product2","description":"description","price":"$300","image":"https://robohash.org/2"},
+            {"id":12,"name":"product3","description":"description","price":"$70","image":"https://robohash.org/3"},
+            {"id":13,"name":"product4","description":"description","price":"$85","image":"https://robohash.org/4"},
+            {"id":14,"name":"product5","description":"description","price":"$150","image":"https://robohash.org/5"}
+    ]
+}

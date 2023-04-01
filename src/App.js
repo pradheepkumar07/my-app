@@ -8,6 +8,7 @@ import Content1 from "./Content1";
 import Content2 from "./Content2";
 import Content3 from "./Content3";
 import BasicForm from "./Form";
+import ReduxSample from './redux';
 
 function App(){
     return(
@@ -17,7 +18,7 @@ function App(){
         <Route path="login" element={<SignIn />} />
         <Route path="career" element={<Career />} />
         <Route path="form" element={<BasicForm />}/>
-        
+        <Route path="redux" element={<ReduxSample />} />
         <Route path="about" element={<About />}>
           <Route exact path="content1" element={<Content1 />} />
           <Route exact path="content2" element={<Content2 />} />
