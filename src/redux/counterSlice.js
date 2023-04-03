@@ -15,6 +15,16 @@ const counterSlice = createSlice({
   }
 })
 
+// counterSlice = { reducer: reducerFuntion, actions: allActionsDefinedInsideReducersAsObj }
+/**
+ * counterSlice = {
+ *  reducer: function
+ *  actions: {
+ *    increment: (obj) => {},
+ *    decrement: (obj) => {}
+ *  }
+ * }
+ */
 
 export const counterActions = counterSlice.actions
 

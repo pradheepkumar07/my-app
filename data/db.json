@@ -8,7 +8,8 @@
             "password":"01234567"
         }
     ],
-    "shop": [],
+    "cart": [],
+    "wishList":[],
     "products":[
 
             {"id":10,"name":"product1","description":"description","price":"$200","image":"https://robohash.org/1"},

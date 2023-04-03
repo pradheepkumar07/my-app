@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import apiCall from "../services/apiCall";
-import { cartActions } from "./eCommerceStore";
+import { cartActions, wishListActions } from "./eCommerceStore";
 
 const Products = () => {
   const [list, setList] = useState([]);
@@ -15,12 +15,14 @@ const Products = () => {
       .catch((err) => {
         console.log(err);
       })
-  }, [])
+  }, [list])
 
   const handleClick = (productItem) => {
     dispatch(cartActions.addToCart(productItem));
   }
-
+  const handelClick = (productItem) => {
+    dispatch(wishListActions.addToWishlist(productItem));
+  }
   return (
     <div>
       <h1>Products</h1>
@@ -37,7 +39,7 @@ const Products = () => {
                 <img src={item.image} alt={item.title} />
                 <p>₹ {item.price}</p>
                 <button onClick={() => handleClick(item)}>Add to Cart</button>
-                <button>Add to Wishlist</button>
+                <button onClick={() => handelClick(item)}>Add to Wishlist</button>
               </div>
             )
         })
