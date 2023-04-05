@@ -5,7 +5,7 @@ import store from "./store";
 import commerceStore from "./eCommerceStore";
 import CartPage from "./commercePage";
 import Products from "./Products";
-import Wishlist from "./Products";
+/* import Wishlist from "./Products"; */
 
 const ReduxSample = () => {
   return (
@@ -15,7 +15,7 @@ const ReduxSample = () => {
         <hr />
         <Products />
         <hr />
-        <Wishlist />
+{/*         <Wishlist /> */}
       </Provider>
       <hr />
       <Provider store={store}>
