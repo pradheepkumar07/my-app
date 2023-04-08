@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
-/* import { wishListActions } from "./eCommerceStore"; */
+import { useEffect,useState} from "react";
+import apiCall from "../services/apiCall";
 
 const Wishlist = () => {
   const dispatch = useDispatch();
@@ -9,10 +10,9 @@ const Wishlist = () => {
       data: storeObj.cart
     }
   })
-
-  /* const handleRemove = (itemIndex) => {
-    dispatch(cartActions.removeFromCart(itemIndex));
-  } */
+  useEffect(() => {
+    apiCall.get('/wishList',data)
+  }, [])
 
   return (
     <div>
@@ -28,8 +28,6 @@ const Wishlist = () => {
           <span>Title</span>
           <span>Description</span>
           <span>Price</span>
-          {/* <span>Count</span>
-          <span>Action</span> */}
         </div>
         {
           data?.map((item, index) => {
@@ -40,14 +38,6 @@ const Wishlist = () => {
                 <h3>{item.title}</h3>
                 <p>{item.description}</p>
                 <p>₹ {item.price}</p>
-                {/* <span styles={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center' }}>
-                  <button style={{ padding: 4, fontSize: 20 }}>-</button>
-                  <span>
-                    <input value={item.count || 1} style={{ padding: 8, width: 50, textAlign: 'center' }} />
-                  </span>
-                  <button style={{ padding: 4, fontSize: 20 }}>+</button>
-                </span>
-                <button onClick={() => handleRemove(index)}>Remove</button> */}
               </div>
             )
           })

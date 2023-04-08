@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch} from "react-redux";
 import apiCall from "../services/apiCall";
 import { cartActions, wishListActions } from "./eCommerceStore";
 
@@ -22,7 +22,8 @@ const Products = () => {
   }
   const handleWish = (productItem) => {
     dispatch(wishListActions.addToWishlist(productItem));
-    apiCall.post('/wishList')
+    apiCall.post('/wishList',{productItem})
+/*     alert("Hi") */
   }
   return (
     <div>
@@ -33,6 +34,7 @@ const Products = () => {
       }}>
       {
         list.map((item, index) => {
+          
           return (
               <div key={item.id} style={{ border: '1px solid #cdcdcd', margin: 2, textAlign: 'center', padding: 10 }}>
                 <h3>{item.title}</h3>

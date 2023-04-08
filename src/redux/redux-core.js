@@ -33,7 +33,7 @@ const todoReducer = (currentState={count:1}, action) => {
 
 const store = createStore(todoReducer) // current store value is { count: 1 }
 
-console.log('INIT >> ', store.getState())
+/* console.log('INIT >> ', store.getState()) */
 
 store.subscribe(FunA)
 store.dispatch({ type: 'INC', step: 5 })

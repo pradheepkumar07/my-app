@@ -29,12 +29,32 @@ const wishList = createSlice({
         }
     }
 })
+
+
+const counterSlice = createSlice({
+  name: 'Counter',
+  initialState: {
+    count: 1
+  },
+  reducers: {
+    increment: (state, action) => {
+      state.count += action.payload || 1
+    },
+    decrement: (state, action) => {
+      state.count -= 1
+    },
+  }
+})
+
+export const counterActions = counterSlice.actions;
+
 export const cartActions = cartSlice.actions;
 export const wishListActions = wishList.actions;
 
 const commerceStore = configureStore({
     reducer:{
         cart:cartSlice.reducer,
+        counter: counterSlice.reducer,
         wishList:wishList.reducer
     }
 })

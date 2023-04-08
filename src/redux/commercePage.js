@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { cartActions } from "./eCommerceStore";
-import {counterActions} from "./counterSlice";
+import { cartActions,counterActions } from "./eCommerceStore";
 
 const CartPage = () => {
   const dispatch = useDispatch();
