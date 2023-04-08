@@ -30,7 +30,6 @@ const wishList = createSlice({
     }
 })
 
-
 const counterSlice = createSlice({
   name: 'Counter',
   initialState: {
