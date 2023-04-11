@@ -25,6 +25,7 @@ function App(){
           <Route exact path="content3" element={<Content3 />} />
           </Route>
           </Route>
+          <Route path="*" element={<h2>404 Page not found </h2>}/>
       </Routes>
       </div>
     );
