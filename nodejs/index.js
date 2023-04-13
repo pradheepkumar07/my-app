@@ -3,10 +3,8 @@ const http = require('http');
 
 const server = http.createServer();
 
-const read = fs.ReadStream('node.json',{flag:'w'});
-
-const write = fs.WriteStream('node.json', 'utf8');
-
+const read = fs.ReadStream('node.json', 'utf8');
+const write = fs.WriteStream('node.json', {flags: 'a'});
 /* server.on('request', (request, response) => {
     if (request.url === '/data' request.method === 'GET') {
         response.setHeader('Content-Type', 'application/json');
@@ -22,10 +20,12 @@ const write = fs.WriteStream('node.json', 'utf8');
 
 server.on('request', (request, response) => {
     console.log("Testing...");
-    if (request.url === "/data" && request.method === "GET") {
+    if (request.url === "/articles" && request.method === "GET") {
+      /* console.log(request.url); */
       response.setHeader('Content-Type', 'application/json');
-      read.on('data', (data) => {
+      read.on('articles', (data) => {
         response.write(data)
+        console.log(data);
         console.log("Testing ends...");
         response.end()
       })
@@ -38,13 +38,10 @@ server.on('request', (request, response) => {
 server.listen({port:3000},() => {
     console.log('server is running on port 3000');
     write.write(JSON.stringify({
-        worker:[{
-            "id":6,
-            "name":"Raj",
-            "username":"user6",
-            "email":"user1@user6.com",
-            "password":"012345@67"
-        }]
+      articles:[
+          {"id":4,"name":"user4","username":"user4","email":"user4@user4.com","password":"01234"},
+          {"id":5,"name":"user5","username":"user5","email":"user5@user5.com","password":"012345"}
+        ]
     }))
 })
 
