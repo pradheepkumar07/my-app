@@ -23,6 +23,16 @@ server.on('request', (request, response) => {
         console.log("Testing ends...");
         response.end()
       })
+    } else if (request.url === "/articles/:id" && request.method === "GET"){
+      console.log(request.url);
+      response.setHeader('Content-Type', 'application/json');
+      read.on('data', (data) => {
+        response.write(data)
+        // console.log(data);
+        console.log("Testing ends...");
+        response.end()
+      })
+
     } else{
       response.end()
     }
@@ -35,17 +45,19 @@ server.on('request', (request, response) => {
           ]
       }))
       response.end()
+    } else{
+      response.end()
     }
   })
   
-var articles = JSON.parse(fs.readFileSync('./nodejs/node.json', 'UTF-8'));
+/* var articles = JSON.parse(fs.readFileSync('./nodejs/node.json', 'UTF-8'));
 
 app.get('/articles/:id', function(req, res) {
   var id = +req.params.id;
   var article = articles.find(a => a.id === id);
   res.write(article);
-  /* console.log(article); */
-})
+
+}) */
 
 server.listen({port:3000},() => {
     console.log('server is running on port 3000');
