@@ -1,9 +1,9 @@
 const fs = require('fs');
 const http = require('http');
-const EventEmitter = require('events');
+/* const EventEmitter = require('events'); */
 const server = http.createServer();
-var express = require('express');
-var app = express();
+/* var express = require('express'); */
+/* var app = express(); */
 
 //Reading and write sterams for file system
 const read = fs.createReadStream('./nodejs/node.json', 'utf8');
@@ -20,16 +20,13 @@ server.on('request', (request, response) => {
       read.on('data', (data) => {
         response.write(data)
         // console.log(data);
-        console.log("Testing ends...");
+/*         console.log("Testing ends..."); */
         response.end()
       })
     } else if (request.url === "/articles/:id" && request.method === "GET"){
-      console.log(request.url);
       response.setHeader('Content-Type', 'application/json');
       read.on('data', (data) => {
         response.write(data)
-        // console.log(data);
-        console.log("Testing ends...");
         response.end()
       })
 
