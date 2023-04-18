@@ -1,16 +1,13 @@
 const fs = require('fs');
 const http = require('http');
-/* const EventEmitter = require('events'); */
 const server = http.createServer();
-/* var express = require('express'); */
-/* var app = express(); */
+var express = require('express');
+var app = express();
 
 //Reading and write sterams for file system
 const read = fs.createReadStream('./nodejs/node.json', 'utf8');
 
 const write = fs.createWriteStream('./nodejs/node.json', {flags: 'a'});
-
-/* const handleRequests = new EventEmitter(); */
 
 server.on('request', (request, response) => {
     console.log("Testing...");
@@ -25,8 +22,11 @@ server.on('request', (request, response) => {
       })
     } else if (request.url === "/articles/:id" && request.method === "GET"){
       response.setHeader('Content-Type', 'application/json');
-      read.on('data', (data) => {
-        response.write(data)
+      var articles = JSON.parse(fs.readFileSync('./nodejs/node.json', 'UTF-8'));
+      app.get('/articles/:id', function(req, res) {
+        var id = +req.params.id;
+        var article = articles.find(a => a.id === id);
+        res.write(article);
         response.end()
       })
 
@@ -47,14 +47,6 @@ server.on('request', (request, response) => {
     }
   })
   
-/* var articles = JSON.parse(fs.readFileSync('./nodejs/node.json', 'UTF-8'));
-
-app.get('/articles/:id', function(req, res) {
-  var id = +req.params.id;
-  var article = articles.find(a => a.id === id);
-  res.write(article);
-
-}) */
 
 server.listen({port:3000},() => {
     console.log('server is running on port 3000');
