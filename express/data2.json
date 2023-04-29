@@ -1,1 +1,8 @@
-[{"id":4,"title":"title4","content":"updated comment","author":"user4","datetime":"012347474"}][{"id":4,"title":"title4","content":"modified comment","author":"user4","datetime":"012347474"}][{"id":4,"title":"title4","content":"modified comment","author":"user4","datetime":"012347474"}][{"id":7,"title":"title7","content":"modified comment","author":"user7m","datetime":"252355567"}]
+[
+    {
+        "id": 4,
+        "title": "title4",
+        "author": "user4",
+        "datetime": "012347474"
+    }
+]
